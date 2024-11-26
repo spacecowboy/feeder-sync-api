@@ -2,11 +2,9 @@
   "always-update": true,
   "packages": {
     "v2": {
-      "package-name": "feeder-sync-api/v2",
-      "changelog-path": "CHANGELOG.md",
+      "component": "feeder-sync-api/v2",
       "bump-minor-pre-major": true,
       "bump-patch-for-minor-pre-major": false,
-      "draft": false,
       "prerelease": true,
       "prerelease-type": "alpha",
       "release-type": "go"
