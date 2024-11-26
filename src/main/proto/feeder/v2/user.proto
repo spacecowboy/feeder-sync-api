@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package feeder.v2;
+
+option go_package = "github.com/spacecowboy/feeder-sync-api/v2/gen;feeder_v2";
+
+import "feeder/v2/uuid.proto";
+import "feeder/v2/device.proto";
+
+message User {
+    feeder.v2.Uuid id = 1;
+    string legacy_sync_code = 2;
+}
+
+message GetUserDeviceRequest {
+    string etag = 1;
+}
+
+message GetUserDeviceResponse {
+    User user = 1;
+    feeder.v2.Device device = 2;
+    string etag = 3;
+}

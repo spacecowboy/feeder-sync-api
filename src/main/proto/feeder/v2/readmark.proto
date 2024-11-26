@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package feeder.v2;
+
+option go_package = "github.com/spacecowboy/feeder-sync-api/v2/gen;feeder_v2";
+
+import "google/protobuf/timestamp.proto";
+
+message ReadMark {
+    google.protobuf.Timestamp timestamp = 1;
+    bytes content = 2;
+}
+
+message GetReadMarksRequest {
+    // Only return ReadMarks updated since this timestamp
+    google.protobuf.Timestamp since = 1;
+}
+
+message GetReadMarksResponse {
+    repeated ReadMark readMarks = 1;
+}
+
+message UpdateReadMarksRequest {
+    // Each item is the (probably encrypted) content of a ReadMark
+    repeated bytes read_marks = 1;
+}
+
+message UpdateReadMarksResponse {
+    // Latest timestamp of all ReadMarks
+    google.protobuf.Timestamp timestamp = 1;
+}

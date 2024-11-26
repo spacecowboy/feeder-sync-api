@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package feeder.v2;
+
+option go_package = "github.com/spacecowboy/feeder-sync-api/v2/gen;feeder_v2";
+
+message Feeds {
+    bytes content = 1;
+    bytes content_hash = 2;
+    string etag = 3;
+}
+
+message UpdateFeedsRequest {
+    bytes content = 1;
+    bytes content_hash = 2;
+    string etag = 3;
+}
+
+message UpdateFeedsResponse {
+    bytes content_hash = 1;
+    string etag = 2;
+}
+
+message GetFeedsRequest {
+    string etag = 1;
+}
+
+message GetFeedsResponse {
+    Feeds feeds = 1;
+    string etag = 2;
+}

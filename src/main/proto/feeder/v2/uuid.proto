@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package feeder.v2;
+
+option go_package = "github.com/spacecowboy/feeder-sync-api/v2/gen;feeder_v2";
+
+// Wrapper for UUID to allow for easy conversion
+message Uuid {
+  bytes value = 1;
+}

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package feeder.v2;
+
+option go_package = "github.com/spacecowboy/feeder-sync-api/v2/gen;feeder_v2";
+
+import "feeder/v2/create.proto";
+import "feeder/v2/device.proto";
+import "feeder/v2/feeds.proto";
+import "feeder/v2/join.proto";
+import "feeder/v2/readmark.proto";
+import "feeder/v2/user.proto";
+
+service FeederSyncApi {
+    // Create a new user and chain
+    rpc CreateChain(feeder.v2.CreateChainRequest) returns (feeder.v2.CreateChainResponse);
+    // Join an existing chain with a new device
+    rpc JoinChain(feeder.v2.JoinChainRequest) returns (feeder.v2.JoinChainResponse);
+    // Get the user and device for the current chain. Used for migrating to v2
+    rpc GetUserDevice(feeder.v2.GetUserDeviceRequest) returns (feeder.v2.GetUserDeviceResponse);
+    rpc GetReadMarks(feeder.v2.GetReadMarksRequest) returns (feeder.v2.GetReadMarksResponse);
+    rpc UpdateReadMarks(feeder.v2.UpdateReadMarksRequest) returns (feeder.v2.UpdateReadMarksResponse);
+    rpc GetDevices(feeder.v2.GetDevicesRequest) returns (feeder.v2.GetDevicesResponse);
+    rpc DeleteDevice(feeder.v2.DeleteDeviceRequest) returns (feeder.v2.DeleteDeviceResponse);
+    rpc GetFeeds(feeder.v2.GetFeedsRequest) returns (feeder.v2.GetFeedsResponse);
+    rpc UpdateFeeds(feeder.v2.UpdateFeedsRequest) returns (feeder.v2.UpdateFeedsResponse);
+}

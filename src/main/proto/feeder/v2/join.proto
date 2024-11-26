@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package feeder.v2;
+
+option go_package = "github.com/spacecowboy/feeder-sync-api/v2/gen;feeder_v2";
+
+import "feeder/v2/device.proto";
+
+message JoinChainRequest {
+    string device_name = 1;
+}
+
+message JoinChainResponse {
+	feeder.v2.Device device = 1;
+}
