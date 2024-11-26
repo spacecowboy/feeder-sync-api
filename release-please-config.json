@@ -2,6 +2,7 @@
   "always-update": true,
   "packages": {
     "v2": {
+      "package-name": "feeder-sync-api/v2",
       "changelog-path": "CHANGELOG.md",
       "bump-minor-pre-major": true,
       "bump-patch-for-minor-pre-major": false,
